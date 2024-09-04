@@ -3,12 +3,25 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "dev:auth": "nodemon auth/index.js",
+    "dev:posts": "nodemon posts/index.js",
+    "prisma:migrate": "npx prisma migrate dev"
   },
   "dependencies": {
+    "@apollo/gateway": "^2.9.0",
     "@apollo/server": "^4.11.0",
-    "graphql": "^16.9.0"
+    "@apollo/subgraph": "^2.9.0",
+    "bcrypt": "^5.1.1",
+    "graphql": "^16.9.0",
+    "graphql-tag": "^2.12.6",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@prisma/client": "^5.19.1",
+    "nodemon": "^3.1.4",
+    "prisma": "^5.19.1"
   }
 }
