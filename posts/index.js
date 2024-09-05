@@ -4,7 +4,9 @@ const jwtHelper = require("../helper/jwtHelper");
 const { PrismaClient } = require("@prisma/client");
 const { default: gql } = require("graphql-tag");
 const { buildSubgraphSchema } = require("@apollo/subgraph");
-const { ApolloServerPluginInlineTrace } = require("@apollo/server/plugin/inlineTrace");
+const {
+  ApolloServerPluginInlineTrace,
+} = require("@apollo/server/plugin/inlineTrace");
 
 const Prisma = new PrismaClient();
 
@@ -100,6 +102,7 @@ const main = async () => {
   const { url } = await startStandaloneServer(server, {
     listen: { port: 4002 },
     context: ({ req }) => {
+      // console.log(req.headers);
       const token = req.headers.authorization || "";
       return {
         token,
